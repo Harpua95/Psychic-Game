@@ -6,24 +6,25 @@
 </head>
 <body>
 
-<h1>The Psychic Game</h1>
+
 
 	<div id="game">
+		<h1>The Psychic Game</h1>	
 	<p>Guess What Letter I'm thinking of</p>
-	<p>Total Wins</p>
-	<p>Total Losses</p>
-	<p>Guesses Remaining</p>
-	<p>Your Guesses so far</p>	
+	<p>Total Wins: </p>
+	<p>Total Losses: </p>
+	<p>Guesses Remaining: </p>
+	<p>Your Guesses so far: </p>	
 	</div>
 
 	<script type="text/javascript">
 
 		var wins = 0;
 		var losses = 0;
-		var guessesLeft = 10;
+		var guessesLeft = 9;
 		var guessesSoFar = [];
 		
-		var psychicChoices = ["a", "b", "c", "d", "e", "f", "g"];//letters of alphabet shortcut?] 
+		var psychicChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];//letters of alphabet shortcut?] 
 
 		document.onkeyup = function(event) {
 			
@@ -31,41 +32,42 @@
 
 			var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
 
+			guessesSoFar.push(userGuess);
 
-			if (userGuess === psychicGuess) 
-			{ 	wins++;
+
+			if (userGuess === psychicGuess) { 	
+				wins++;
 				alert("Yeah Buddy-Great Job!!!");
-				guessesLeft = 10;
-
-				guessesSoFar.length = 0
+				guessesLeft = 9;
+				guessesSoFar.length = 0;
 			}
-			else if (guessesLeft == 0){
+			else if (guessesLeft == 0) {
 				losses++;
 				alert("You No Win. Do Better Next Time");
-				guessesLeft = 10;
+				guessesLeft = 9;
 				guessesSoFar.length = 0;
 			}	
-			else if (userGuess!== psychicGuess) {guessesLeft--;
+			else if (userGuess !== psychicGuess) {guessesLeft--;
 			}
 
 			var html = "<h1>The Psychic Game</h1>" + 
         		"<p>Guess what letter I'm thinking of!</p>" +
         		"<p>Total Wins: " + 
-        		wins + 
-        		"</p>" +
-        		"<p>Total Losses: " + 
-        		losses + 
-        		"</p>" +
-        		"<p>Guesses Left: " + 
-        		guessesLeft + 
-        		"</p>" +
-        		"<p>Your Guesses so far: " +
-        		guessesSoFar +
-        		"</p>"
-        		;
-        	document.querySelector('#game').innerHtml = html;	
-			}
-
+        wins + 
+        "</p>" +
+        "<p>Total Losses: " + 
+        losses + 
+        "</p>" +
+        "<p>Guesses Left: " + 
+        guessesLeft + 
+        "</p>" +
+        "<p>Your Guesses so far: " +
+        guessesSoFar +
+        "</p>"
+        ;
+        // Placing the html into the game ID
+        document.querySelector("#game").innerHTML = html; 
+    }
 // add totals
 // set guess limits
 // pray :-)
