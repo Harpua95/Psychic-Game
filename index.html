@@ -21,7 +21,7 @@
 
 		var wins = 0;
 		var losses = 0;
-		var guessesLeft = 9;
+		var guessesLeft = 10;
 		var guessesSoFar = [];
 		
 		var psychicChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];//letters of alphabet shortcut?] 
@@ -38,13 +38,13 @@
 			if (userGuess === psychicGuess) { 	
 				wins++;
 				alert("Yeah Buddy-Great Job!!!");
-				guessesLeft = 9;
+				guessesLeft = 10;
 				guessesSoFar.length = 0;
 			}
 			else if (guessesLeft == 0) {
 				losses++;
 				alert("You No Win. Do Better Next Time");
-				guessesLeft = 9;
+				guessesLeft = 10;
 				guessesSoFar.length = 0;
 			}	
 			else if (userGuess !== psychicGuess) {guessesLeft--;
